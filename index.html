@@ -19,6 +19,7 @@
       <div class="sb-nav" id="sbNav">
         <div class="nav-sec">快速开始</div>
         <div class="nav-item active" data-target="hero"><span class="nav-ic">🏠</span> 首页概览</div>
+        <div class="nav-item" data-target="comparison"><span class="nav-ic">🔍</span> 工具对比</div>
         <div class="nav-item" data-target="install"><span class="nav-ic">⬇️</span> 安装与环境</div>
         <div class="nav-item" data-target="quick-start"><span class="nav-ic">🚀</span> 5分钟上手</div>
         <div class="nav-sec">🌱 入门篇</div>
@@ -27,12 +28,14 @@
         <div class="nav-item" data-target="work-modes"><span class="nav-ic">🔄</span> 工作模式</div>
         <div class="nav-sec">🌿 中级篇</div>
         <div class="nav-item" data-target="config"><span class="nav-ic">⚙️</span> 配置详解</div>
+        <div class="nav-item" data-target="skills"><span class="nav-ic">🎯</span> Skills 推荐</div>
+        <div class="nav-item" data-target="plugins"><span class="nav-ic">🔌</span> 插件推荐</div>
         <div class="nav-item" data-target="custom-commands"><span class="nav-ic">📝</span> 自定义命令</div>
         <div class="nav-item" data-target="shortcuts"><span class="nav-ic">⌨️</span> 快捷键</div>
         <div class="nav-sec">🌳 高级篇</div>
         <div class="nav-item" data-target="architecture"><span class="nav-ic">🏗️</span> 技术架构</div>
         <div class="nav-item" data-target="local-models"><span class="nav-ic">🏠</span> 本地模型</div>
-        <div class="nav-item" data-target="mcp"><span class="nav-ic">🔌</span> MCP 集成</div>
+        <div class="nav-item" data-target="mcp"><span class="nav-ic">🔗</span> MCP 集成</div>
         <div class="nav-item" data-target="privacy"><span class="nav-ic">🔒</span> 隐私安全</div>
         <div class="nav-sec">附录</div>
         <div class="nav-item" data-target="cheatsheet"><span class="nav-ic">📋</span> 速查表</div>
@@ -76,6 +79,112 @@
       </section>
 
       <div class="content">
+        <!-- ===================== 工具对比 ===================== -->
+        <section class="section" id="comparison">
+          <h2 class="section-title">🔍 主流 AI 编程工具对比 <span class="badge badge-beginner">必读</span></h2>
+          <p style="color: var(--text2); margin-bottom: 16px;">以下是 2026 年主流 AI 编程工具的核心对比，帮助你选择最适合的工具：</p>
+          
+          <div class="comparison-table tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 120px;">对比维度</th>
+                  <th>OpenCode</th>
+                  <th>Claude Code</th>
+                  <th>Codex CLI</th>
+                  <th>CodeBuddy</th>
+                  <th>Qoder</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>开发商</strong></td>
+                  <td>开源社区</td>
+                  <td>Anthropic</td>
+                  <td>OpenAI</td>
+                  <td>腾讯云</td>
+                  <td>阿里巴巴</td>
+                </tr>
+                <tr>
+                  <td><strong>开源协议</strong></td>
+                  <td><span style="color: var(--green);">MIT</span></td>
+                  <td><span style="color: var(--text-muted);">闭源</span></td>
+                  <td><span style="color: var(--text-muted);">闭源</span></td>
+                  <td><span style="color: var(--text-muted);">闭源</span></td>
+                  <td><span style="color: var(--text-muted);">闭源</span></td>
+                </tr>
+                <tr>
+                  <td><strong>支持模型</strong></td>
+                  <td>75+ 模型</td>
+                  <td>Claude 系列</td>
+                  <td>GPT 系列</td>
+                  <td>混元/GPT/Claude</td>
+                  <td>通义/GPT/Claude</td>
+                </tr>
+                <tr>
+                  <td><strong>主要形态</strong></td>
+                  <td>终端/桌面</td>
+                  <td>终端</td>
+                  <td>终端</td>
+                  <td>IDE/终端/Web</td>
+                  <td>IDE</td>
+                </tr>
+                <tr>
+                  <td><strong>本地模型</strong></td>
+                  <td><span class="check">✓</span></td>
+                  <td><span class="cross">✗</span></td>
+                  <td><span class="cross">✗</span></td>
+                  <td><span class="partial">△</span></td>
+                  <td><span class="partial">△</span></td>
+                </tr>
+                <tr>
+                  <td><strong>MCP 支持</strong></td>
+                  <td><span class="check">✓</span></td>
+                  <td><span class="check">✓</span></td>
+                  <td><span class="partial">△</span></td>
+                  <td><span class="check">✓</span></td>
+                  <td><span class="check">✓</span></td>
+                </tr>
+                <tr>
+                  <td><strong>隐私保护</strong></td>
+                  <td><span style="color: var(--green);">强</span></td>
+                  <td><span style="color: var(--yellow);">中</span></td>
+                  <td><span style="color: var(--yellow);">中</span></td>
+                  <td><span style="color: var(--yellow);">中</span></td>
+                  <td><span style="color: var(--yellow);">中</span></td>
+                </tr>
+                <tr>
+                  <td><strong>价格</strong></td>
+                  <td><span style="color: var(--green);">免费</span></td>
+                  <td>订阅制</td>
+                  <td>订阅制</td>
+                  <td>免费/订阅</td>
+                  <td>免费/订阅</td>
+                </tr>
+                <tr>
+                  <td><strong>适合人群</strong></td>
+                  <td>全栈/隐私敏感</td>
+                  <td>专业开发者</td>
+                  <td>OpenAI 用户</td>
+                  <td>腾讯生态用户</td>
+                  <td>阿里生态用户</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="card" style="margin-top: 20px;">
+            <h4>💡 如何选择？</h4>
+            <ul>
+              <li><strong>OpenCode</strong>：追求开源、隐私、多模型支持的开发者首选</li>
+              <li><strong>Claude Code</strong>：深度 Claude 用户，需要最强推理能力</li>
+              <li><strong>Codex CLI</strong>：OpenAI 订阅用户，习惯 GPT 工作流</li>
+              <li><strong>CodeBuddy</strong>：腾讯云用户，需要 IDE 集成和云端协作</li>
+              <li><strong>Qoder</strong>：阿里云用户，企业级开发场景</li>
+            </ul>
+          </div>
+        </section>
+
         <!-- ===================== INSTALL ===================== -->
         <section class="section" id="install">
           <h2 class="section-title">⬇️ 安装与环境 <span class="badge badge-beginner">入门</span></h2>
@@ -746,6 +855,192 @@ src/
           </div>
         </section>
 
+        <!-- ===================== SKILLS ===================== -->
+        <section class="section" id="skills">
+          <h2 class="section-title">🎯 热门 Skills 推荐 <span class="badge badge-intermediate">中级</span></h2>
+          <p style="color: var(--text2); margin-bottom: 20px;">Skills 是 OpenCode 的扩展能力模块，以下是最热门的 10 个推荐：</p>
+          
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h4>🔍 Deep Research</h4>
+              <p>企业级研究助手，支持多源综合分析、引用追踪和验证。适合需要深度调研的场景。</p>
+            </div>
+            <div class="feature-card">
+              <h4>🌐 Web Search</h4>
+              <p>实时联网搜索能力，支持搜索结果排名、安全搜索、分页等功能。</p>
+            </div>
+            <div class="feature-card">
+              <h4>📊 XLSX</h4>
+              <p>Excel 表格处理专家，支持读取、编辑、创建和分析 xlsx/xlsm/csv 文件。</p>
+            </div>
+            <div class="feature-card">
+              <h4>📄 PDF</h4>
+              <p>PDF 文档全能助手，支持读取、合并、拆分、加密、提取图片和 OCR 识别。</p>
+            </div>
+            <div class="feature-card">
+              <h4>🎨 AI Image Gen</h4>
+              <p>AI 图像生成，支持 FLUX、Gemini、Grok、Seedream 等 50+ 模型。</p>
+            </div>
+            <div class="feature-card">
+              <h4>📝 DOCX</h4>
+              <p>Word 文档处理，支持创建、读取、编辑、格式化和模板应用。</p>
+            </div>
+            <div class="feature-card">
+              <h4>📊 PPTX Generator</h4>
+              <p>PPT 幻灯片生成器，支持创建、编辑、布局管理和 LinkedIn 轮播。</p>
+            </div>
+            <div class="feature-card">
+              <h4>🤖 MCP Builder</h4>
+              <p>MCP 服务器构建指南，帮助创建高质量的 MCP 集成。</p>
+            </div>
+            <div class="feature-card">
+              <h4>🔍 Find Skills</h4>
+              <p>技能发现助手，帮助用户发现和安装适合的智能体技能。</p>
+            </div>
+            <div class="feature-card">
+              <h4>✍️ Humanizer</h4>
+              <p>文本人性化处理，去除 AI 生成痕迹，让文本更自然。</p>
+            </div>
+          </div>
+          
+          <div class="tip">
+            <strong>💡 安装方式：</strong>在 OpenCode 中使用 <code>/skill install &lt;skill-name&gt;</code> 命令即可安装所需技能。
+          </div>
+        </section>
+
+        <!-- ===================== PLUGINS ===================== -->
+        <section class="section" id="plugins">
+          <h2 class="section-title">🔌 热门插件推荐 <span class="badge badge-intermediate">中级</span></h2>
+          <p style="color: var(--text2); margin-bottom: 20px;">插件可以扩展 OpenCode 的核心功能，以下是最热门的 10 个社区插件：</p>
+          
+          <div class="accordion">
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>🔔 Opencode Notify — 任务完成通知</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>任务完成时发送原生 OS 通知，让你不错过任何重要完成事件。支持 macOS、Windows 和 Linux。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-notify</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>🧠 Opencode Mem — 持久化记忆系统</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>为 OpenCode 提供持久化记忆能力，支持本地向量数据库存储。让你的 AI 助手记住之前的对话和偏好。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-mem</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>📊 Tokenscope — Token 使用分析</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>全面的 Token 使用分析和成本追踪工具，帮助你优化 API 调用成本。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-tokenscope</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>🔐 Gemini Auth — Google 账号认证</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>使用 Google 账号认证，连接 Gemini 计划，免费使用 Gemini 模型。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-gemini-auth</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>🌳 Opencode Worktree — Git Worktree 管理</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>零摩擦 git worktree 管理，自动生成终端并清理。适合多分支并行开发。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-worktree</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>🔄 Oh My Opencode — 后台 Agent 框架</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>后台 Agent、预置工具（LSP/AST/MCP）、精选 Agent 集合。大幅增强 OpenCode 能力。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install oh-my-opencode</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>✂️ opencode-snip — Token 节省神器</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>自动为 shell 命令添加 snip 前缀，减少 Token 消耗 60-90%。适合大型项目。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-snip</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>📝 Opencode Snippets — 代码片段扩展</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>即时内联文本扩展，支持组合式片段。提高代码复用效率。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-snippets</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>⏱️ WakaTime — 编码活动追踪</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>集成 WakaTime，自动追踪你的编码活动，生成详细的编程统计报告。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-wakatime</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAccordion(this)">
+                <span>🌐 Google AI Search — AI 搜索增强</span>
+                <span class="arrow">▶</span>
+              </div>
+              <div class="acc-body">
+                <div class="acc-inner">
+                  <p>提供 Google AI Mode（SGE）搜索工具，获取更智能的搜索结果。</p>
+                  <p><strong>安装：</strong><code>opencode plugin install opencode-google-ai-search</code></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="info" style="margin-top: 20px;">
+            <strong>🔗 更多插件：</strong>访问 <a href="https://github.com/awesome-opencode/awesome-opencode" target="_blank">Awesome OpenCode</a> 发现更多社区插件。
+          </div>
+        </section>
+
         <!-- ===================== CUSTOM COMMANDS ===================== -->
         <section class="section" id="custom-commands">
           <h2 class="section-title">📝 自定义命令 <span class="badge badge-intermediate">中级</span></h2>
@@ -1371,10 +1666,18 @@ export LOCAL_ENDPOINT="http://localhost:11434"  # Ollama</div>
           </div>
         </section>
 
+        <!-- 作者信息 -->
+        <div class="author-attr">
+          <p><strong>📚 作者：</strong>磊哥哥科技拆解室</p>
+          <p style="margin-top: 8px;"><strong>📜 开源协议：</strong>Apache License 2.0</p>
+          <p style="margin-top: 8px; font-size: 11px; color: var(--text-muted);">本教程引用的开源代码和网页内容均已标注来源，版权归原作者所有。</p>
+        </div>
+
         <!-- Footer -->
         <footer class="footer">
           <p>📗 OpenCode 学习教程 · 开源免费 · 隐私优先</p>
           <p style="margin-top:8px"><a href="https://opencode.ai" target="_blank">官网</a> · <a href="https://github.com/opencode-ai/opencode" target="_blank">GitHub</a> · <a href="https://github.com/charmbracelet/crush" target="_blank">Crush (新项目)</a></p>
+          <p style="margin-top:8px; font-size: 11px; color: var(--text-muted);">Copyright © 2026 磊哥哥科技拆解室 · Licensed under Apache 2.0</p>
         </footer>
       </div>
     </main>

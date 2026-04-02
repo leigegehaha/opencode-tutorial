@@ -1,23 +1,23 @@
-/* OpenCode Tutorial - Tokyo Night Dark Theme */
-/* 基于 Tokyo Night 配色方案，专为教程优化可读性 */
+/* OpenCode Tutorial - Tokyo Night Dark Theme (Optimized for Readability) */
+/* 基于 Tokyo Night 配色方案，优化为更淡的背景和更白的文字 */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Tokyo Night Dark 核心颜色 */
-  --bg: #1a1b26;           /* 深黑蓝 - 主背景 */
-  --surface: #24283b;       /* 暗蓝灰 - 卡片背景 */
-  --surface2: #292e42;      /* 中间层背景 */
-  --surface3: #343a4e;      /* 更亮的表面 */
+  /* Tokyo Night Dark 核心颜色 - 背景更淡 */
+  --bg: #24283b;           /* 暗蓝灰 - 更淡的主背景 */
+  --surface: #292e42;       /* 更亮的卡片背景 */
+  --surface2: #343a4e;      /* 中间层背景 */
+  --surface3: #414a5e;      /* 更亮的表面 */
   
   /* 边框与分割 */
-  --border: #414868;        /* 深蓝灰 */
-  --border-light: #565f89;  /* 中灰蓝 */
+  --border: #4a5178;        /* 更明显的边框 */
+  --border-light: #5a6388;  /* 更亮的边框 */
   
-  /* 文字颜色 - 高对比度优化 */
-  --text: #c0caf5;          /* 淡紫色 - 主文字 */
-  --text-bright: #d4d9f7;   /* 更亮的文字 */
-  --text2: #a9b1d6;         /* 灰蓝色 - 次要文字 */
+  /* 文字颜色 - 更白更亮 */
+  --text: #d4d9f7;          /* 更白的文字 - 主文字 */
+  --text-bright: #e8ebfa;   /* 几乎白色的文字 */
+  --text2: #b4bacf;         /* 更亮的次要文字 */
   --text-muted: #9aa5ce;    /* 中灰蓝 - 辅助文字 */
   
   /* 强调色 - 蓝紫色系 */
@@ -40,7 +40,7 @@
   
   /* 圆角与阴影 */
   --radius: 8px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 html { scroll-behavior: smooth; }
@@ -87,7 +87,7 @@ a:hover {
 .sb-head {
   padding: 24px 20px 18px;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(122, 162, 247, 0.08) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(122, 162, 247, 0.1) 0%, transparent 100%);
 }
 
 .sb-head h2 {
@@ -148,12 +148,12 @@ a:hover {
 
 .nav-item:hover {
   color: var(--text);
-  background: rgba(122, 162, 247, 0.06);
+  background: rgba(122, 162, 247, 0.08);
 }
 
 .nav-item.active {
   color: var(--accent);
-  background: rgba(122, 162, 247, 0.12);
+  background: rgba(122, 162, 247, 0.15);
   border-left-color: var(--accent);
   font-weight: 600;
 }
@@ -188,7 +188,7 @@ a:hover {
 .hero {
   padding: 60px 50px 45px;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(122, 162, 247, 0.08) 0%, rgba(26, 27, 38, 0) 100%);
+  background: linear-gradient(180deg, rgba(122, 162, 247, 0.1) 0%, rgba(36, 40, 59, 0) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -200,7 +200,7 @@ a:hover {
   right: 0;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle at center, rgba(122, 162, 247, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(122, 162, 247, 0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -209,8 +209,8 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(122, 162, 247, 0.15);
-  border: 1px solid rgba(122, 162, 247, 0.3);
+  background: rgba(122, 162, 247, 0.18);
+  border: 1px solid rgba(122, 162, 247, 0.35);
   border-radius: 24px;
   font-size: 13px;
   color: var(--accent);
@@ -265,9 +265,9 @@ a:hover {
   letter-spacing: 0.5px;
 }
 
-.badge-beginner { background: rgba(158, 206, 106, 0.2); color: var(--green); }
-.badge-intermediate { background: rgba(42, 195, 222, 0.2); color: var(--blue); }
-.badge-advanced { background: rgba(187, 154, 247, 0.2); color: var(--purple); }
+.badge-beginner { background: rgba(158, 206, 106, 0.25); color: var(--green); }
+.badge-intermediate { background: rgba(42, 195, 222, 0.25); color: var(--blue); }
+.badge-advanced { background: rgba(187, 154, 247, 0.25); color: var(--purple); }
 
 /* Subsection */
 .sub { margin-bottom: 32px; }
@@ -309,7 +309,7 @@ a:hover {
 
 .card:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(122, 162, 247, 0.1);
+  box-shadow: 0 0 0 1px rgba(122, 162, 247, 0.15);
 }
 
 .card h4 {
@@ -346,7 +346,7 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 10px 18px;
-  background: rgba(122, 162, 247, 0.05);
+  background: rgba(122, 162, 247, 0.08);
   border-bottom: 1px solid var(--border);
   font-size: 12px;
   color: var(--text2);
@@ -375,13 +375,13 @@ a:hover {
 .code-header .copy-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(122, 162, 247, 0.1);
+  background: rgba(122, 162, 247, 0.12);
 }
 
 .code-header .copy-btn.copied {
   border-color: var(--green);
   color: var(--green);
-  background: rgba(158, 206, 106, 0.1);
+  background: rgba(158, 206, 106, 0.12);
 }
 
 .code-body {
@@ -409,12 +409,12 @@ a:hover {
 /* Inline code */
 code {
   font-family: var(--mono);
-  background: rgba(122, 162, 247, 0.12);
+  background: rgba(122, 162, 247, 0.15);
   color: var(--accent);
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 13px;
-  border: 1px solid rgba(122, 162, 247, 0.2);
+  border: 1px solid rgba(122, 162, 247, 0.25);
 }
 
 /* Tabs */
@@ -444,13 +444,13 @@ code {
 
 .tab-btn:hover {
   color: var(--text);
-  background: rgba(122, 162, 247, 0.05);
+  background: rgba(122, 162, 247, 0.08);
 }
 
 .tab-btn.active {
   color: var(--accent);
   border-bottom-color: var(--accent);
-  background: rgba(122, 162, 247, 0.08);
+  background: rgba(122, 162, 247, 0.12);
 }
 
 .tab-panel {
@@ -486,7 +486,7 @@ code {
 }
 
 .acc-head:hover {
-  background: rgba(122, 162, 247, 0.05);
+  background: rgba(122, 162, 247, 0.08);
   color: var(--accent);
 }
 
@@ -512,7 +512,7 @@ code {
 .acc-inner {
   padding: 18px 20px;
   border-top: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* SVG container */
@@ -529,7 +529,7 @@ code {
 .svg-wrap svg {
   max-width: 100%;
   height: auto;
-  filter: brightness(1.05);
+  filter: brightness(1.08);
 }
 
 .svg-caption {
@@ -577,14 +577,14 @@ tr:last-child td { border-bottom: none; }
 tr:hover td { background: var(--surface); }
 
 td code {
-  background: rgba(122, 162, 247, 0.1);
+  background: rgba(122, 162, 247, 0.12);
   border-color: transparent;
 }
 
 /* Tip/Warning/Info boxes */
 .tip {
   border-left: 4px solid var(--green);
-  background: rgba(158, 206, 106, 0.08);
+  background: rgba(158, 206, 106, 0.1);
   padding: 16px 20px;
   border-radius: 0 var(--radius) var(--radius) 0;
   margin: 18px 0;
@@ -602,7 +602,7 @@ td code {
 
 .warn {
   border-left: 4px solid var(--red);
-  background: rgba(247, 118, 142, 0.08);
+  background: rgba(247, 118, 142, 0.1);
   padding: 16px 20px;
   border-radius: 0 var(--radius) var(--radius) 0;
   margin: 18px 0;
@@ -620,7 +620,7 @@ td code {
 
 .info {
   border-left: 4px solid var(--blue);
-  background: rgba(42, 195, 222, 0.08);
+  background: rgba(42, 195, 222, 0.1);
   padding: 16px 20px;
   border-radius: 0 var(--radius) var(--radius) 0;
   margin: 18px 0;
@@ -703,7 +703,7 @@ td code {
 .scroll-top:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(122, 162, 247, 0.1);
+  background: rgba(122, 162, 247, 0.12);
 }
 
 /* Search */
@@ -727,7 +727,7 @@ td code {
 
 .search-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(122, 162, 247, 0.15);
+  box-shadow: 0 0 0 3px rgba(122, 162, 247, 0.2);
 }
 
 .search-input::placeholder { color: var(--text-muted); }
@@ -751,7 +751,7 @@ td code {
 .feature-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .feature-card h4 {
@@ -769,6 +769,39 @@ td code {
   color: var(--text2);
   line-height: 1.6;
 }
+
+/* Comparison table */
+.comparison-table {
+  margin: 24px 0;
+  overflow-x: auto;
+}
+
+.comparison-table table {
+  font-size: 13px;
+}
+
+.comparison-table th {
+  background: var(--surface2);
+  color: var(--text-bright);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.comparison-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.comparison-table .check { color: var(--green); font-size: 16px; }
+.comparison-table .cross { color: var(--text-muted); font-size: 16px; }
+.comparison-table .partial { color: var(--yellow); font-size: 16px; }
 
 /* Animations */
 @keyframes fadeIn {
@@ -817,6 +850,21 @@ strong {
 .footer a {
   color: var(--accent);
   margin: 0 8px;
+}
+
+/* Author attribution */
+.author-attr {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 16px 20px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-top: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.author-attr strong {
+  color: var(--accent);
 }
 
 /* Responsive */
