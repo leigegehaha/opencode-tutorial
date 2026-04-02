@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenCode 学习教程 - 开源终端 AI 编程助手</title>
+  <link rel="stylesheet" href="opencode-tutorial.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sb-head">
+        <h2>📗 OpenCode 教程</h2>
+      </div>
+      <div class="search-wrap">
+        <input type="text" class="search-input" placeholder="搜索章节..." id="searchInput">
+      </div>
+      <div class="sb-nav" id="sbNav">
+        <div class="nav-sec">快速开始</div>
+        <div class="nav-item active" data-target="hero"><span class="nav-ic">🏠</span> 首页概览</div>
+        <div class="nav-item" data-target="install"><span class="nav-ic">⬇️</span> 安装与环境</div>
+        <div class="nav-item" data-target="quick-start"><span class="nav-ic">🚀</span> 5分钟上手</div>
+        <div class="nav-sec">🌱 入门篇</div>
+        <div class="nav-item" data-target="basic-commands"><span class="nav-ic">💬</span> 基础命令</div>
+        <div class="nav-item" data-target="models"><span class="nav-ic">🤖</span> 模型配置</div>
+        <div class="nav-item" data-target="work-modes"><span class="nav-ic">🔄</span> 工作模式</div>
+        <div class="nav-sec">🌿 中级篇</div>
+        <div class="nav-item" data-target="config"><span class="nav-ic">⚙️</span> 配置详解</div>
+        <div class="nav-item" data-target="custom-commands"><span class="nav-ic">📝</span> 自定义命令</div>
+        <div class="nav-item" data-target="shortcuts"><span class="nav-ic">⌨️</span> 快捷键</div>
+        <div class="nav-sec">🌳 高级篇</div>
+        <div class="nav-item" data-target="architecture"><span class="nav-ic">🏗️</span> 技术架构</div>
+        <div class="nav-item" data-target="local-models"><span class="nav-ic">🏠</span> 本地模型</div>
+        <div class="nav-item" data-target="mcp"><span class="nav-ic">🔌</span> MCP 集成</div>
+        <div class="nav-item" data-target="privacy"><span class="nav-ic">🔒</span> 隐私安全</div>
+        <div class="nav-sec">附录</div>
+        <div class="nav-item" data-target="cheatsheet"><span class="nav-ic">📋</span> 速查表</div>
+        <div class="nav-item" data-target="faq"><span class="nav-ic">❓</span> 常见问题</div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+      <!-- ===================== HERO ===================== -->
+      <section class="section hero" id="hero">
+        <div class="hero-badge"><span>🆓</span> 完全开源 · 免费使用</div>
+        <h1>OpenCode 学习教程</h1>
+        <p>从零开始掌握开源终端 AI 编程助手 OpenCode，支持 75+ AI 模型，终端原生体验，隐私优先设计。</p>
+        
+        <!-- SVG: Hero illustration -->
+        <div class="svg-wrap" style="margin-top:24px">
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+            <!-- Terminal window -->
+            <rect x="30" y="20" width="640" height="160" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+            <!-- Title bar -->
+            <rect x="30" y="20" width="640" height="28" rx="10" fill="#1c2333"/>
+            <rect x="30" y="38" width="640" height="10" fill="#1c2333"/>
+            <!-- Traffic lights -->
+            <circle cx="50" cy="34" r="6" fill="#f85149"/>
+            <circle cx="70" cy="34" r="6" fill="#f0883e"/>
+            <circle cx="90" cy="34" r="6" fill="#3fb950"/>
+            <!-- Title text -->
+            <text x="350" y="38" text-anchor="middle" fill="#8b949e" font-size="12">OpenCode — AI Coding Agent</text>
+            <!-- Terminal content -->
+            <text x="50" y="72" fill="#3fb950" font-size="13" font-family="monospace">$ opencode</text>
+            <text x="50" y="95" fill="#8b949e" font-size="12" font-family="monospace">🤖 Welcome to OpenCode! How can I help you today?</text>
+            <text x="50" y="118" fill="#58a6ff" font-size="12" font-family="monospace">You: 帮我重构这个 React 组件，使用 hooks 替代 class</text>
+            <text x="50" y="141" fill="#bc8cff" font-size="12" font-family="monospace">✓ Analyzing component structure...</text>
+            <text x="50" y="164" fill="#3fb950" font-size="12" font-family="monospace">✓ Refactored! 3 files updated. Run tests? (y/n)</text>
+          </svg>
+          <div class="svg-caption">OpenCode：终端原生的 AI 编程助手</div>
+        </div>
+      </section>
+
+      <div class="content">
+        <!-- ===================== INSTALL ===================== -->
+        <section class="section" id="install">
+          <h2 class="section-title">⬇️ 安装与环境 <span class="badge badge-beginner">入门</span></h2>
+          
+          <div class="sub">
+            <h3>系统要求</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>系统</th><th>要求</th><th>推荐终端</th></tr></thead>
+              <tbody>
+                <tr><td><strong>macOS</strong></td><td>macOS 10.15+</td><td>WezTerm, Alacritty, iTerm2, Kitty</td></tr>
+                <tr><td><strong>Linux</strong></td><td>glibc 2.31+</td><td>WezTerm, Alacritty, Ghostty, Kitty</td></tr>
+                <tr><td><strong>Windows</strong></td><td>Windows 10+</td><td>Windows Terminal (推荐 WSL)</td></tr>
+              </tbody>
+            </table></div>
+            <div class="tip"><strong>💡 提示：</strong>Windows 用户建议使用 WSL（Windows Subsystem for Linux）以获得最佳体验。</div>
+          </div>
+
+          <div class="sub">
+            <h3>安装方式</h3>
+            <div class="tabs">
+              <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchTab(this, 'install-script')">一键脚本</button>
+                <button class="tab-btn" onclick="switchTab(this, 'install-brew')">Homebrew</button>
+                <button class="tab-btn" onclick="switchTab(this, 'install-npm')">npm/bun</button>
+                <button class="tab-btn" onclick="switchTab(this, 'install-go')">Go</button>
+              </div>
+              <div class="tab-panel active" id="install-script">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — 推荐方式</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># 安装最新版本
+curl -fsSL https://opencode.ai/install | bash
+
+# 安装指定版本
+curl -fsSL https://opencode.ai/install | VERSION=0.1.0 bash</div>
+                </div>
+              </div>
+              <div class="tab-panel" id="install-brew">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — macOS/Linux</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># Homebrew 安装
+brew install opencode-ai/tap/opencode
+
+# 或使用官方 tap
+brew tap opencode-ai/tap
+brew install opencode</div>
+                </div>
+              </div>
+              <div class="tab-panel" id="install-npm">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — Node.js</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># npm 全局安装
+npm install -g opencode-ai@latest
+
+# 或使用 bun
+bun add -g opencode-ai
+
+# 或使用 pnpm
+pnpm add -g opencode-ai</div>
+                </div>
+              </div>
+              <div class="tab-panel" id="install-go">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — Go 安装</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># Go 安装（需要 Go 1.21+）
+go install github.com/opencode-ai/opencode@latest
+
+# Arch Linux AUR
+yay -S opencode-ai-bin
+# 或
+paru -S opencode-ai-bin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>验证安装</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 检查版本
+opencode --version
+
+# 启动 OpenCode
+opencode
+
+# 指定工作目录
+opencode -c /path/to/project
+
+# 调试模式
+opencode -d</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>桌面应用</h3>
+            <p>OpenCode 也提供桌面应用版本，支持 macOS、Windows 和 Linux。</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">下载地址</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 官方下载页面
+https://opencode.ai/download
+
+# macOS 可通过 Homebrew 安装
+brew install --cask opencode</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== QUICK START ===================== -->
+        <section class="section" id="quick-start">
+          <h2 class="section-title">🚀 5分钟上手 <span class="badge badge-beginner">入门</span></h2>
+          
+          <div class="sub">
+            <h3>第一步：配置 API 密钥</h3>
+            <p>OpenCode 需要配置 AI 模型的 API 密钥才能工作。你可以选择以下任一方式：</p>
+            <div class="tabs">
+              <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchTab(this, 'api-env')">环境变量</button>
+                <button class="tab-btn" onclick="switchTab(this, 'api-connect')">交互式配置</button>
+              </div>
+              <div class="tab-panel active" id="api-env">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — 设置环境变量</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># Anthropic Claude
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# OpenAI GPT
+export OPENAI_API_KEY="sk-..."
+
+# Google Gemini
+export GEMINI_API_KEY="AIza..."
+
+# GitHub Copilot（需要 GitHub Token）
+export GITHUB_TOKEN="ghp_..."
+
+# Groq
+export GROQ_API_KEY="gsk_..."
+
+# AWS Bedrock
+export AWS_ACCESS_KEY_ID="AKIA..."
+export AWS_SECRET_ACCESS_KEY="..."
+export AWS_REGION="us-east-1"</div>
+                </div>
+                <div class="tip"><strong>💡 建议将环境变量添加到 shell 配置文件：</strong><code>~/.zshrc</code> 或 <code>~/.bashrc</code></div>
+              </div>
+              <div class="tab-panel" id="api-connect">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">交互式配置流程</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># 1. 启动 OpenCode
+opencode
+
+# 2. 在 TUI 中输入命令
+/connect
+
+# 3. 访问授权页面
+# 打开 https://opencode.ai/auth 登录并获取 API 密钥
+
+# 4. 在 TUI 中粘贴密钥完成配置</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>第二步：初始化项目</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 进入项目目录
+cd /path/to/your/project
+
+# 启动 OpenCode
+opencode
+
+# 在 TUI 中执行初始化命令
+/init</div>
+            </div>
+            <div class="card">
+              <h4>📄 AGENTS.md 文件</h4>
+              <p><code>/init</code> 命令会自动分析项目并生成 <code>AGENTS.md</code> 文件，包含：</p>
+              <ul>
+                <li>项目结构说明</li>
+                <li>技术栈信息</li>
+                <li>编码规范</li>
+                <li>关键文件位置</li>
+              </ul>
+              <p>建议将 <code>AGENTS.md</code> 提交到 Git，帮助 OpenCode 更好理解项目上下文。</p>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>第三步：开始对话</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">示例对话</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 理解代码
+"解释一下这个项目的身份验证流程"
+
+# 搜索文件并提问（使用 @ 符号）
+"@packages/auth 如何处理用户登录？"
+
+# 添加功能
+"在设置页面添加深色模式切换开关"
+
+# 修复 Bug
+"修复这个错误：TypeError: Cannot read property 'id' of undefined"
+
+# 重构代码
+"重构 UserService 类以使用依赖注入模式"</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>第四步：切换工作模式</h3>
+            <!-- SVG: Plan vs Build -->
+            <div class="svg-wrap">
+              <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+                <!-- Plan Mode -->
+                <rect x="20" y="20" width="320" height="140" rx="12" fill="rgba(88,166,255,.08)" stroke="#58a6ff" stroke-width="2"/>
+                <text x="180" y="50" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="700">🧠 计划模式 (Plan)</text>
+                <rect x="40" y="65" width="280" height="80" rx="6" fill="#161b22" stroke="#30363d"/>
+                <text x="180" y="90" text-anchor="middle" fill="#8b949e" font-size="11">✓ 只读分析代码</text>
+                <text x="180" y="108" text-anchor="middle" fill="#8b949e" font-size="11">✓ 制定实现计划</text>
+                <text x="180" y="126" text-anchor="middle" fill="#8b949e" font-size="11">✓ 不修改任何文件</text>
+                <!-- Build Mode -->
+                <rect x="360" y="20" width="320" height="140" rx="12" fill="rgba(63,185,80,.08)" stroke="#3fb950" stroke-width="2"/>
+                <text x="520" y="50" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="700">🔨 构建模式 (Build)</text>
+                <rect x="380" y="65" width="280" height="80" rx="6" fill="#161b22" stroke="#30363d"/>
+                <text x="520" y="90" text-anchor="middle" fill="#8b949e" font-size="11">✓ 可读写文件</text>
+                <text x="520" y="108" text-anchor="middle" fill="#8b949e" font-size="11">✓ 执行 shell 命令</text>
+                <text x="520" y="126" text-anchor="middle" fill="#8b949e" font-size="11">✓ 修改代码</text>
+                <!-- Arrow -->
+                <path d="M340 90 L360 90" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="350" y="85" text-anchor="middle" fill="#d97706" font-size="11">Tab</text>
+              </svg>
+              <div class="svg-caption">使用 Tab 键在两种模式间切换</div>
+            </div>
+            <div class="tip"><strong>💡 最佳实践：</strong>复杂任务先用计划模式分析，确认方案后再切换到构建模式执行。</div>
+          </div>
+        </section>
+
+        <!-- ===================== BASIC COMMANDS ===================== -->
+        <section class="section" id="basic-commands">
+          <h2 class="section-title">💬 基础命令 <span class="badge badge-beginner">入门</span></h2>
+          
+          <div class="sub">
+            <h3>斜杠命令</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>命令</th><th>说明</th><th>示例</th></tr></thead>
+              <tbody>
+                <tr><td><code>/init</code></td><td>初始化项目，生成 AGENTS.md</td><td><code>/init</code></td></tr>
+                <tr><td><code>/undo</code></td><td>撤销上一次更改</td><td><code>/undo</code></td></tr>
+                <tr><td><code>/redo</code></td><td>重做已撤销的更改</td><td><code>/redo</code></td></tr>
+                <tr><td><code>/share</code></td><td>生成对话分享链接</td><td><code>/share</code></td></tr>
+                <tr><td><code>/connect</code></td><td>配置 API 密钥</td><td><code>/connect</code></td></tr>
+                <tr><td><code>/help</code></td><td>显示帮助信息</td><td><code>/help</code></td></tr>
+                <tr><td><code>/clear</code></td><td>清空当前对话</td><td><code>/clear</code></td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>CLI 参数</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 正常启动
+opencode
+
+# 指定工作目录
+opencode -c /path/to/project
+
+# 调试模式
+opencode -d
+
+# 非交互式提示（管道模式）
+opencode -p "解释这个函数的作用"
+
+# JSON 格式输出
+opencode -p "分析代码" -f json
+
+# 静默模式（无加载动画）
+opencode -p "解释代码" -q
+
+# 查看帮助
+opencode --help</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>文件引用语法</h3>
+            <p>使用 <code>@</code> 符号快速引用文件：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">对话示例</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 搜索并引用文件
+"@auth 解释这个登录逻辑"
+
+# 引用多个文件
+"@user.model @user.service 分析这两个文件的关系"
+
+# 引用目录
+"@src/api 列出所有 API 端点"</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>非交互式使用</h3>
+            <p>OpenCode 支持管道模式，可用于脚本和自动化：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 单次提问
+opencode -p "这段代码有什么问题？" < code.py
+
+# 与其他命令结合
+cat error.log | opencode -p "分析这些错误日志"
+
+# 在脚本中使用
+RESULT=$(opencode -p "生成一个 React 组件" -f json)
+echo "$RESULT" | jq '.code'</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODELS ===================== -->
+        <section class="section" id="models">
+          <h2 class="section-title">🤖 模型配置 <span class="badge badge-beginner">入门</span></h2>
+          
+          <div class="sub">
+            <h3>支持的 AI 提供商</h3>
+            <!-- SVG: Provider ecosystem -->
+            <div class="svg-wrap">
+              <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+                <!-- Center: OpenCode -->
+                <circle cx="350" cy="110" r="50" fill="rgba(63,185,80,.15)" stroke="#3fb950" stroke-width="2"/>
+                <text x="350" y="105" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="700">OpenCode</text>
+                <text x="350" y="122" text-anchor="middle" fill="#8b949e" font-size="10">统一接口</text>
+                <!-- Providers around -->
+                <rect x="50" y="30" width="100" height="45" rx="8" fill="rgba(217,119,6,.1)" stroke="#d97706"/>
+                <text x="100" y="57" text-anchor="middle" fill="#f59e0b" font-size="12">Anthropic</text>
+                <line x1="150" y1="52" x2="300" y2="90" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="200" y="20" width="100" height="45" rx="8" fill="rgba(88,166,255,.1)" stroke="#58a6ff"/>
+                <text x="250" y="47" text-anchor="middle" fill="#58a6ff" font-size="12">OpenAI</text>
+                <line x1="280" y1="65" x2="310" y2="80" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="400" y="20" width="100" height="45" rx="8" fill="rgba(188,140,255,.1)" stroke="#bc8cff"/>
+                <text x="450" y="47" text-anchor="middle" fill="#bc8cff" font-size="12">Google</text>
+                <line x1="420" y1="65" x2="390" y2="80" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="550" y="30" width="100" height="45" rx="8" fill="rgba(248,81,73,.1)" stroke="#f85149"/>
+                <text x="600" y="57" text-anchor="middle" fill="#f85149" font-size="12">GitHub</text>
+                <line x1="550" y1="52" x2="400" y2="90" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="50" y="160" width="100" height="45" rx="8" fill="rgba(240,136,62,.1)" stroke="#f0883e"/>
+                <text x="100" y="187" text-anchor="middle" fill="#f0883e" font-size="12">Groq</text>
+                <line x1="150" y1="182" x2="300" y2="130" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="200" y="160" width="100" height="45" rx="8" fill="rgba(63,185,80,.1)" stroke="#3fb950"/>
+                <text x="250" y="187" text-anchor="middle" fill="#3fb950" font-size="12">AWS</text>
+                <line x1="280" y1="160" x2="310" y2="140" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="400" y="160" width="100" height="45" rx="8" fill="rgba(88,166,255,.1)" stroke="#58a6ff"/>
+                <text x="450" y="187" text-anchor="middle" fill="#58a6ff" font-size="12">Azure</text>
+                <line x1="420" y1="160" x2="390" y2="140" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="550" y="160" width="100" height="45" rx="8" fill="rgba(188,140,255,.1)" stroke="#bc8cff"/>
+                <text x="600" y="187" text-anchor="middle" fill="#bc8cff" font-size="12">本地模型</text>
+                <line x1="550" y1="182" x2="400" y2="130" stroke="#30363d" stroke-width="1" stroke-dasharray="4"/>
+              </svg>
+              <div class="svg-caption">OpenCode 支持 75+ AI 提供商，通过统一接口调用</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>模型列表</h3>
+            <div class="accordion">
+              <div class="acc-item open">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>🟠 Anthropic Claude</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <div class="tbl-wrap"><table>
+                    <thead><tr><th>模型</th><th>特点</th><th>环境变量</th></tr></thead>
+                    <tbody>
+                      <tr><td>Claude 3.7 Sonnet</td><td>最新版本，编程能力强</td><td><code>ANTHROPIC_API_KEY</code></td></tr>
+                      <tr><td>Claude 3.5 Sonnet</td><td>性价比高，推荐日常使用</td><td><code>ANTHROPIC_API_KEY</code></td></tr>
+                      <tr><td>Claude 3.5 Haiku</td><td>速度快，适合简单任务</td><td><code>ANTHROPIC_API_KEY</code></td></tr>
+                      <tr><td>Claude 3 Opus</td><td>最强推理能力</td><td><code>ANTHROPIC_API_KEY</code></td></tr>
+                    </tbody>
+                  </table></div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>🔵 OpenAI</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <div class="tbl-wrap"><table>
+                    <thead><tr><th>模型</th><th>特点</th><th>环境变量</th></tr></thead>
+                    <tbody>
+                      <tr><td>GPT-4.1</td><td>最新版本，编程优化</td><td><code>OPENAI_API_KEY</code></td></tr>
+                      <tr><td>GPT-4.1-mini</td><td>轻量级，快速响应</td><td><code>OPENAI_API_KEY</code></td></tr>
+                      <tr><td>GPT-4o</td><td>多模态支持</td><td><code>OPENAI_API_KEY</code></td></tr>
+                      <tr><td>O1/O3/O4</td><td>深度推理模型</td><td><code>OPENAI_API_KEY</code></td></tr>
+                    </tbody>
+                  </table></div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>🟣 Google Gemini</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <div class="tbl-wrap"><table>
+                    <thead><tr><th>模型</th><th>特点</th><th>环境变量</th></tr></thead>
+                    <tbody>
+                      <tr><td>Gemini 2.5 Pro</td><td>最新旗舰模型</td><td><code>GEMINI_API_KEY</code></td></tr>
+                      <tr><td>Gemini 2.5 Flash</td><td>快速响应版本</td><td><code>GEMINI_API_KEY</code></td></tr>
+                      <tr><td>Gemini 2.0 Flash Lite</td><td>轻量级模型</td><td><code>GEMINI_API_KEY</code></td></tr>
+                    </tbody>
+                  </table></div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>🟢 GitHub Copilot</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <div class="tbl-wrap"><table>
+                    <thead><tr><th>模型</th><th>说明</th><th>环境变量</th></tr></thead>
+                    <tbody>
+                      <tr><td>GPT-4o</td><td>Copilot 默认模型</td><td><code>GITHUB_TOKEN</code></td></tr>
+                      <tr><td>Claude 3.5 Sonnet</td><td>Copilot 支持</td><td><code>GITHUB_TOKEN</code></td></tr>
+                      <tr><td>Gemini 2.0</td><td>Copilot 支持</td><td><code>GITHUB_TOKEN</code></td></tr>
+                    </tbody>
+                  </table></div>
+                  <div class="tip" style="margin-top:12px">需要 GitHub Copilot 订阅，使用 Personal Access Token。</div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>🟡 Groq</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <div class="tbl-wrap"><table>
+                    <thead><tr><th>模型</th><th>特点</th><th>环境变量</th></tr></thead>
+                    <tbody>
+                      <tr><td>Llama 4 Maverick</td><td>Meta 最新模型</td><td><code>GROQ_API_KEY</code></td></tr>
+                      <tr><td>Llama 3.3 70b</td><td>高性能开源模型</td><td><code>GROQ_API_KEY</code></td></tr>
+                      <tr><td>Deepseek R1</td><td>深度推理模型</td><td><code>GROQ_API_KEY</code></td></tr>
+                      <tr><td>QWEN QWQ-32b</td><td>阿里开源模型</td><td><code>GROQ_API_KEY</code></td></tr>
+                    </tbody>
+                  </table></div>
+                </div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>切换模型</h3>
+            <p>在 OpenCode TUI 中按 <code>Ctrl+O</code> 打开模型选择对话框，或使用斜杠命令：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">模型切换</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 快捷键切换
+Ctrl+O  → 打开模型选择对话框
+
+# 命令行指定
+opencode --model claude-3.7-sonnet
+opencode --model gpt-4.1
+opencode --model gemini-2.5-pro</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>OpenCode Zen（推荐）</h3>
+            <div class="card">
+              <h4>🌟 什么是 Zen？</h4>
+              <p>OpenCode Zen 是官方提供的精选模型服务，专为编程代理优化：</p>
+              <ul>
+                <li><strong>稳定可靠</strong>：经过严格测试和基准验证</li>
+                <li><strong>无需配置</strong>：无需管理多个 API 密钥</li>
+                <li><strong>统一体验</strong>：避免不同模型间的性能差异</li>
+              </ul>
+            </div>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash — 使用 Zen</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 配置 Zen
+/connect
+# 选择 Zen 选项，按提示完成授权
+
+# 或使用环境变量
+export OPENCODE_ZEN_KEY="your-zen-key"</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== WORK MODES ===================== -->
+        <section class="section" id="work-modes">
+          <h2 class="section-title">🔄 工作模式 <span class="badge badge-beginner">入门</span></h2>
+          
+          <div class="sub">
+            <h3>双模式详解</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>维度</th><th>🧠 计划模式 (Plan)</th><th>🔨 构建模式 (Build)</th></tr></thead>
+              <tbody>
+                <tr><td><strong>权限</strong></td><td>只读</td><td>可读写</td></tr>
+                <tr><td><strong>文件操作</strong></td><td>只能查看</td><td>可以修改、创建、删除</td></tr>
+                <tr><td><strong>命令执行</strong></td><td>不能执行 shell</td><td>可以执行 shell 命令</td></tr>
+                <tr><td><strong>适用场景</strong></td><td>理解代码、制定计划</td><td>实现功能、修复 Bug</td></tr>
+                <tr><td><strong>安全性</strong></td><td>高（无副作用）</td><td>中（需要确认操作）</td></tr>
+                <tr><td><strong>切换方式</strong></td><td colspan="2" style="text-align:center">按 <code>Tab</code> 键</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>推荐工作流</h3>
+            <!-- SVG: Workflow -->
+            <div class="svg-wrap">
+              <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+                <!-- Step 1 -->
+                <rect x="20" y="40" width="150" height="80" rx="10" fill="rgba(88,166,255,.1)" stroke="#58a6ff" stroke-width="2"/>
+                <text x="95" y="70" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="700">1. 计划模式</text>
+                <text x="95" y="90" text-anchor="middle" fill="#8b949e" font-size="11">理解需求</text>
+                <text x="95" y="106" text-anchor="middle" fill="#8b949e" font-size="11">分析代码结构</text>
+                <!-- Arrow -->
+                <path d="M170 80 L200 80" stroke="#d97706" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <!-- Step 2 -->
+                <rect x="200" y="40" width="150" height="80" rx="10" fill="rgba(88,166,255,.1)" stroke="#58a6ff" stroke-width="2"/>
+                <text x="275" y="70" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="700">2. 制定方案</text>
+                <text x="275" y="90" text-anchor="middle" fill="#8b949e" font-size="11">设计实现方案</text>
+                <text x="275" y="106" text-anchor="middle" fill="#8b949e" font-size="11">确认无遗漏</text>
+                <!-- Arrow -->
+                <path d="M350 80 L380 80" stroke="#3fb950" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                <!-- Step 3 -->
+                <rect x="380" y="40" width="150" height="80" rx="10" fill="rgba(63,185,80,.1)" stroke="#3fb950" stroke-width="2"/>
+                <text x="455" y="70" text-anchor="middle" fill="#3fb950" font-size="13" font-weight="700">3. 构建模式</text>
+                <text x="455" y="90" text-anchor="middle" fill="#8b949e" font-size="11">切换模式</text>
+                <text x="455" y="106" text-anchor="middle" fill="#8b949e" font-size="11">执行修改</text>
+                <!-- Arrow -->
+                <path d="M530 80 L560 80" stroke="#d97706" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <!-- Step 4 -->
+                <rect x="560" y="40" width="120" height="80" rx="10" fill="rgba(188,140,255,.1)" stroke="#bc8cff" stroke-width="2"/>
+                <text x="620" y="70" text-anchor="middle" fill="#bc8cff" font-size="13" font-weight="700">4. 验证</text>
+                <text x="620" y="90" text-anchor="middle" fill="#8b949e" font-size="11">运行测试</text>
+                <text x="620" y="106" text-anchor="middle" fill="#8b949e" font-size="11">代码审查</text>
+                <!-- Arrow markers -->
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+                  </marker>
+                  <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#3fb950"/>
+                  </marker>
+                </defs>
+              </svg>
+              <div class="svg-caption">推荐工作流：先计划后构建，确保安全可靠</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>撤销与重做</h3>
+            <p>OpenCode 提供完整的撤销/重做功能：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">撤销重做</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 撤销上一次更改
+/undo
+
+# 重做已撤销的更改
+/redo
+
+# 查看更改历史
+/log</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== CONFIG ===================== -->
+        <section class="section" id="config">
+          <h2 class="section-title">⚙️ 配置详解 <span class="badge badge-intermediate">中级</span></h2>
+          
+          <div class="sub">
+            <h3>配置文件位置</h3>
+            <p>OpenCode 按以下顺序查找配置文件（后者覆盖前者）：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">配置文件优先级</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 1. 用户全局配置
+~/.opencode.json
+
+# 2. XDG 标准位置
+$XDG_CONFIG_HOME/opencode/.opencode.json
+
+# 3. 项目配置（优先级最高）
+./.opencode.json</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>配置示例</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">json — opencode.json</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body">{
+  "model": "claude-3.7-sonnet",
+  "provider": "anthropic",
+  "autoCompact": true,
+  "theme": "dark",
+  "editor": "vim",
+  "formatOnSave": true,
+  "lsp": {
+    "enabled": true,
+    "languages": ["typescript", "python", "go"]
+  },
+  "tools": {
+    "bash": {
+      "enabled": true,
+      "timeout": 30000
+    },
+    "fetch": {
+      "enabled": true
+    }
+  },
+  "providers": {
+    "anthropic": {
+      "apiKey": "${ANTHROPIC_API_KEY}"
+    },
+    "openai": {
+      "apiKey": "${OPENAI_API_KEY}"
+    }
+  }
+}</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>配置项说明</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>配置项</th><th>类型</th><th>默认值</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td><code>model</code></td><td>string</td><td>auto</td><td>默认使用的模型</td></tr>
+                <tr><td><code>provider</code></td><td>string</td><td>auto</td><td>默认提供商</td></tr>
+                <tr><td><code>autoCompact</code></td><td>boolean</td><td>true</td><td>自动压缩上下文</td></tr>
+                <tr><td><code>theme</code></td><td>string</td><td>dark</td><td>主题（dark/light）</td></tr>
+                <tr><td><code>editor</code></td><td>string</td><td>vim</td><td>内置编辑器模式</td></tr>
+                <tr><td><code>formatOnSave</code></td><td>boolean</td><td>true</td><td>保存时自动格式化</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>AGENTS.md 项目配置</h3>
+            <p>在项目根目录创建 <code>AGENTS.md</code> 文件，帮助 OpenCode 理解项目：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">markdown — AGENTS.md</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 项目说明
+
+## 技术栈
+- 前端：React 18 + TypeScript + Tailwind CSS
+- 后端：Node.js + Express + PostgreSQL
+- 测试：Jest + Playwright
+
+## 项目结构
+```
+src/
+├── components/    # React 组件
+├── hooks/         # 自定义 Hooks
+├── services/      # API 服务层
+├── utils/         # 工具函数
+└── types/         # TypeScript 类型定义
+```
+
+## 编码规范
+- 使用函数式组件和 Hooks
+- 遵循 ESLint + Prettier 配置
+- 组件命名使用 PascalCase
+- 文件命名使用 camelCase
+
+## 关键文件
+- <code>src/App.tsx</code>: 应用入口
+- <code>src/services/api.ts</code>: API 配置
+- <code>.env.example</code>: 环境变量模板</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== CUSTOM COMMANDS ===================== -->
+        <section class="section" id="custom-commands">
+          <h2 class="section-title">📝 自定义命令 <span class="badge badge-intermediate">中级</span></h2>
+          
+          <div class="sub">
+            <h3>命令文件位置</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 用户命令（全局）
+~/.config/opencode/commands/
+~/.opencode/commands/
+
+# 项目命令（项目特定）
+./.opencode/commands/</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>创建自定义命令</h3>
+            <p>创建 <code>prime-context.md</code> 文件：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">markdown — prime-context.md</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body">RUN git ls-files
+READ README.md
+READ package.json
+
+提示：分析项目结构和依赖关系</div>
+            </div>
+            <p>使用命令：按 <code>Ctrl+K</code>，输入 <code>user:prime-context</code></p>
+          </div>
+
+          <div class="sub">
+            <h3>命名参数</h3>
+            <p>支持使用 <code>$NAME</code> 格式的命名参数：</p>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">markdown — view-issue.md</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body">RUN gh issue view $ISSUE_NUMBER --json title,body,comments
+
+提示：分析这个 GitHub Issue 并提供解决方案</div>
+            </div>
+            <p>使用时输入：<code>user:view-issue ISSUE_NUMBER=123</code></p>
+          </div>
+
+          <div class="sub">
+            <h3>命令类型</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>类型</th><th>语法</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td><code>RUN</code></td><td><code>RUN &lt;command&gt;</code></td><td>执行 shell 命令</td></tr>
+                <tr><td><code>READ</code></td><td><code>READ &lt;file&gt;</code></td><td>读取文件内容</td></tr>
+                <tr><td><code>WRITE</code></td><td><code>WRITE &lt;file&gt; &lt;content&gt;</code></td><td>写入文件</td></tr>
+                <tr><td>提示文本</td><td>自由文本</td><td>作为 AI 的提示</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+        </section>
+
+        <!-- ===================== SHORTCUTS ===================== -->
+        <section class="section" id="shortcuts">
+          <h2 class="section-title">⌨️ 快捷键 <span class="badge badge-intermediate">中级</span></h2>
+          
+          <div class="sub">
+            <h3>全局快捷键</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>快捷键</th><th>功能</th></tr></thead>
+              <tbody>
+                <tr><td><code>Ctrl+C</code></td><td>退出应用</td></tr>
+                <tr><td><code>Ctrl+?</code></td><td>切换帮助对话框</td></tr>
+                <tr><td><code>Ctrl+L</code></td><td>查看日志</td></tr>
+                <tr><td><code>Ctrl+A</code></td><td>切换会话</td></tr>
+                <tr><td><code>Ctrl+K</code></td><td>命令对话框</td></tr>
+                <tr><td><code>Ctrl+O</code></td><td>模型选择对话框</td></tr>
+                <tr><td><code>Esc</code></td><td>关闭当前覆盖层</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>聊天页面</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>快捷键</th><th>功能</th></tr></thead>
+              <tbody>
+                <tr><td><code>Ctrl+N</code></td><td>创建新会话</td></tr>
+                <tr><td><code>Ctrl+X</code></td><td>取消当前操作</td></tr>
+                <tr><td><code>Tab</code></td><td>切换计划/构建模式</td></tr>
+                <tr><td><code>i</code></td><td>聚焦编辑器</td></tr>
+                <tr><td><code>Esc</code></td><td>退出编辑模式</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>编辑器</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>快捷键</th><th>功能</th></tr></thead>
+              <tbody>
+                <tr><td><code>Ctrl+S</code></td><td>发送消息</td></tr>
+                <tr><td><code>Ctrl+E</code></td><td>打开外部编辑器</td></tr>
+                <tr><td><code>@</code></td><td>文件搜索引用</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+        </section>
+
+        <!-- ===================== ARCHITECTURE ===================== -->
+        <section class="section" id="architecture">
+          <h2 class="section-title">🏗️ 技术架构 <span class="badge badge-advanced">高级</span></h2>
+          
+          <div class="sub">
+            <h3>整体架构</h3>
+            <!-- SVG: Architecture -->
+            <div class="svg-wrap">
+              <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+                <!-- Client Layer -->
+                <rect x="20" y="20" width="660" height="60" rx="8" fill="rgba(88,166,255,.08)" stroke="#58a6ff" stroke-width="1.5"/>
+                <text x="50" y="55" fill="#58a6ff" font-size="13" font-weight="700">客户端层</text>
+                <rect x="140" y="35" width="80" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="180" y="55" text-anchor="middle" fill="#8b949e" font-size="11">TUI 终端</text>
+                <rect x="240" y="35" width="80" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="280" y="55" text-anchor="middle" fill="#8b949e" font-size="11">桌面应用</text>
+                <rect x="340" y="35" width="80" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="380" y="55" text-anchor="middle" fill="#8b949e" font-size="11">IDE 扩展</text>
+                
+                <!-- Core Service Layer -->
+                <rect x="20" y="100" width="660" height="100" rx="8" fill="rgba(63,185,80,.08)" stroke="#3fb950" stroke-width="1.5"/>
+                <text x="50" y="135" fill="#3fb950" font-size="13" font-weight="700">核心服务层</text>
+                <rect x="140" y="115" width="100" height="70" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="190" y="145" text-anchor="middle" fill="#8b949e" font-size="10">代理调度器</text>
+                <text x="190" y="162" text-anchor="middle" fill="#8b949e" font-size="9">主代理 + 子代理</text>
+                <rect x="260" y="115" width="100" height="70" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="310" y="145" text-anchor="middle" fill="#8b949e" font-size="10">任务管理器</text>
+                <text x="310" y="162" text-anchor="middle" fill="#8b949e" font-size="9">队列 + 状态跟踪</text>
+                <rect x="380" y="115" width="100" height="70" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="430" y="145" text-anchor="middle" fill="#8b949e" font-size="10">工具引擎</text>
+                <text x="430" y="162" text-anchor="middle" fill="#8b949e" font-size="9">20+ 内置工具</text>
+                <rect x="500" y="115" width="100" height="70" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="550" y="145" text-anchor="middle" fill="#8b949e" font-size="10">上下文管理</text>
+                <text x="550" y="162" text-anchor="middle" fill="#8b949e" font-size="9">压缩 + 存储</text>
+                
+                <!-- Extension Layer -->
+                <rect x="20" y="220" width="320" height="60" rx="8" fill="rgba(188,140,255,.08)" stroke="#bc8cff" stroke-width="1.5"/>
+                <text x="50" y="255" fill="#bc8cff" font-size="13" font-weight="700">扩展层</text>
+                <rect x="140" y="235" width="80" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="180" y="255" text-anchor="middle" fill="#8b949e" font-size="11">插件系统</text>
+                <rect x="240" y="235" width="80" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="280" y="255" text-anchor="middle" fill="#8b949e" font-size="11">配置管理</text>
+                
+                <!-- Model Adapter Layer -->
+                <rect x="360" y="220" width="320" height="60" rx="8" fill="rgba(217,119,6,.08)" stroke="#d97706" stroke-width="1.5"/>
+                <text x="390" y="255" fill="#d97706" font-size="13" font-weight="700">模型适配层</text>
+                <rect x="500" y="235" width="80" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="540" y="255" text-anchor="middle" fill="#8b949e" font-size="11">75+ 适配器</text>
+                <rect x="600" y="235" width="60" height="30" rx="4" fill="#161b22" stroke="#30363d"/>
+                <text x="630" y="255" text-anchor="middle" fill="#8b949e" font-size="11">本地</text>
+                
+                <!-- Connections -->
+                <path d="M350 80 L350 100" stroke="#30363d" stroke-width="1.5" stroke-dasharray="4"/>
+                <path d="M180 200 L180 220" stroke="#30363d" stroke-width="1.5" stroke-dasharray="4"/>
+                <path d="M520 200 L520 220" stroke="#30363d" stroke-width="1.5" stroke-dasharray="4"/>
+              </svg>
+              <div class="svg-caption">OpenCode 四层架构设计</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>核心组件</h3>
+            <div class="accordion">
+              <div class="acc-item open">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>代理调度器</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <p>OpenCode 采用"主代理 + 子代理"的协作模式：</p>
+                  <ul>
+                    <li><strong>主代理</strong>：总调度，协调子代理执行顺序，处理跨任务依赖</li>
+                    <li><strong>子代理</strong>：领域专家（如图像生成、代码重构），执行单一子任务</li>
+                  </ul>
+                  <div class="tip" style="margin-top:12px">支持 Self-Healing 自愈机制，任务失败时可自动重试或调整策略。</div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>工具引擎</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <p>内置 20+ 工具，所有工具实现统一的 <code>Tool</code> 接口：</p>
+                  <div class="tbl-wrap"><table>
+                    <thead><tr><th>类别</th><th>工具</th></tr></thead>
+                    <tbody>
+                      <tr><td>文件操作</td><td>glob, grep, ls, view, write, edit, patch</td></tr>
+                      <tr><td>系统命令</td><td>bash, diagnostics</td></tr>
+                      <tr><td>网络</td><td>fetch, sourcegraph</td></tr>
+                      <tr><td>代理</td><td>agent（子代理调度）</td></tr>
+                    </tbody>
+                  </table></div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>模型适配器</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <p>统一模型接口设计，所有适配器需实现：</p>
+                  <div class="code-block" style="margin-top:8px">
+                    <div class="code-header"><span class="lang">typescript</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                    <div class="code-body">interface ModelAdapter {
+  generate(prompt: string): Promise<string>;
+  embed(text: string): Promise<number[]>;
+  chat(messages: Message[]): Promise<string>;
+}</div>
+                  </div>
+                  <p style="margin-top:8px">支持 OpenAI、Claude、本地模型（Ollama/vLLM），具备模型缓存、本地推理优化。</p>
+                </div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>技术栈</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>组件</th><th>技术</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>运行时</td><td>TypeScript + Bun</td><td>启动速度快 3x</td></tr>
+                <tr><td>TUI 框架</td><td>Bubble Tea (Go)</td><td>流畅的终端界面</td></tr>
+                <tr><td>存储</td><td>SQLite</td><td>会话和对话持久化</td></tr>
+                <tr><td>LSP</td><td>内置支持</td><td>代码智能提示</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+        </section>
+
+        <!-- ===================== LOCAL MODELS ===================== -->
+        <section class="section" id="local-models">
+          <h2 class="section-title">🏠 本地模型 <span class="badge badge-advanced">高级</span></h2>
+          
+          <div class="sub">
+            <h3>为什么使用本地模型？</h3>
+            <div class="card">
+              <h4>🔒 隐私优先</h4>
+              <ul>
+                <li>代码不会离开本地</li>
+                <li>无需网络连接</li>
+                <li>完全离线运行</li>
+                <li>无 API 费用</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>支持的本地模型方案</h3>
+            <div class="tabs">
+              <div class="tab-bar">
+                <button class="tab-btn active" onclick="switchTab(this, 'ollama')">Ollama</button>
+                <button class="tab-btn" onclick="switchTab(this, 'vllm')">vLLM</button>
+                <button class="tab-btn" onclick="switchTab(this, 'lmstudio')">LM Studio</button>
+              </div>
+              <div class="tab-panel active" id="ollama">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — Ollama 配置</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># 安装 Ollama
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# 下载模型
+ollama pull llama3.2
+ollama pull codellama:7b
+ollama pull deepseek-coder:6.7b
+
+# 配置 OpenCode
+export LOCAL_ENDPOINT="http://localhost:11434"
+
+# 启动 OpenCode
+opencode --model llama3.2</div>
+                </div>
+                <div class="tip" style="margin-top:12px"><strong>推荐模型：</strong>CodeLlama、DeepSeek-Coder、StarCoder2</div>
+              </div>
+              <div class="tab-panel" id="vllm">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — vLLM 配置</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># 安装 vLLM
+pip install vllm
+
+# 启动服务器
+python -m vllm.entrypoints.api_server \
+  --model codellama/CodeLlama-7b-hf \
+  --port 8000
+
+# 配置 OpenCode
+export LOCAL_ENDPOINT="http://localhost:8000"</div>
+                </div>
+              </div>
+              <div class="tab-panel" id="lmstudio">
+                <div class="code-block">
+                  <div class="code-header"><span class="lang">bash — LM Studio 配置</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                  <div class="code-body"># 1. 下载并安装 LM Studio
+# https://lmstudio.ai/
+
+# 2. 在 LM Studio 中下载模型（如 CodeLlama）
+
+# 3. 启动本地服务器（在 LM Studio 中点击 "Start Server"）
+
+# 4. 配置 OpenCode
+export LOCAL_ENDPOINT="http://localhost:1234"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>硬件建议</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>模型大小</th><th>GPU 显存</th><th>内存</th><th>示例模型</th></tr></thead>
+              <tbody>
+                <tr><td>7B 参数</td><td>8GB</td><td>16GB</td><td>CodeLlama-7b, DeepSeek-Coder-6.7b</td></tr>
+                <tr><td>13B 参数</td><td>16GB</td><td>32GB</td><td>CodeLlama-13b</td></tr>
+                <tr><td>34B 参数</td><td>24GB</td><td>64GB</td><td>CodeLlama-34b</td></tr>
+                <tr><td>70B 参数</td><td>48GB+ (多卡)</td><td>128GB</td><td>Llama-3-70b</td></tr>
+              </tbody>
+            </table></div>
+            <div class="tip"><strong>💡 提示：</strong>Apple Silicon Mac (M1/M2/M3) 的统一内存架构非常适合运行本地模型。</div>
+          </div>
+        </section>
+
+        <!-- ===================== MCP ===================== -->
+        <section class="section" id="mcp">
+          <h2 class="section-title">🔌 MCP 集成 <span class="badge badge-advanced">高级</span></h2>
+          
+          <div class="sub">
+            <h3>什么是 MCP？</h3>
+            <p>MCP（Model Context Protocol）是一个开放协议，允许 AI 模型与外部工具和数据源进行标准化交互。</p>
+            <!-- SVG: MCP Architecture -->
+            <div class="svg-wrap">
+              <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+                <!-- OpenCode -->
+                <rect x="20" y="50" width="120" height="60" rx="8" fill="rgba(63,185,80,.15)" stroke="#3fb950" stroke-width="2"/>
+                <text x="80" y="85" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="700">OpenCode</text>
+                <!-- Arrow -->
+                <path d="M140 80 L180 80" stroke="#d97706" stroke-width="2" marker-end="url(#arrow3)"/>
+                <text x="160" y="70" fill="#d97706" font-size="10">MCP</text>
+                <!-- MCP Server -->
+                <rect x="180" y="40" width="140" height="80" rx="8" fill="rgba(88,166,255,.1)" stroke="#58a6ff" stroke-width="2"/>
+                <text x="250" y="65" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="700">MCP Server</text>
+                <text x="250" y="85" text-anchor="middle" fill="#8b949e" font-size="10">GitHub</text>
+                <text x="250" y="100" text-anchor="middle" fill="#8b949e" font-size="10">PostgreSQL</text>
+                <text x="250" y="115" text-anchor="middle" fill="#8b949e" font-size="10">Playwright...</text>
+                <!-- Tools -->
+                <rect x="360" y="50" width="320" height="60" rx="8" fill="rgba(188,140,255,.1)" stroke="#bc8cff" stroke-width="2"/>
+                <text x="520" y="85" text-anchor="middle" fill="#bc8cff" font-size="12" font-weight="700">外部工具 & 数据源</text>
+                <!-- Arrow -->
+                <path d="M320 80 L360 80" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow4)"/>
+                <!-- Arrow markers -->
+                <defs>
+                  <marker id="arrow3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+                  </marker>
+                  <marker id="arrow4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#58a6ff"/>
+                  </marker>
+                </defs>
+              </svg>
+              <div class="svg-caption">通过 MCP 协议扩展 OpenCode 能力</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>配置 MCP 服务器</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">json — opencode.json</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body">{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "ghp_xxx"
+      }
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": "postgresql://user:pass@localhost/db"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@executeautomation/playwright-mcp-server"]
+    }
+  }
+}</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>热门 MCP 服务器</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>名称</th><th>功能</th><th>安装</th></tr></thead>
+              <tbody>
+                <tr><td>GitHub</td><td>Issue/PR 管理</td><td><code>npx @modelcontextprotocol/server-github</code></td></tr>
+                <tr><td>PostgreSQL</td><td>数据库操作</td><td><code>npx @modelcontextprotocol/server-postgres</code></td></tr>
+                <tr><td>Playwright</td><td>浏览器自动化</td><td><code>npx @executeautomation/playwright-mcp-server</code></td></tr>
+                <tr><td>Filesystem</td><td>文件系统访问</td><td><code>npx @modelcontextprotocol/server-filesystem</code></td></tr>
+                <tr><td>Brave Search</td><td>网页搜索</td><td><code>npx @modelcontextprotocol/server-brave-search</code></td></tr>
+              </tbody>
+            </table></div>
+          </div>
+        </section>
+
+        <!-- ===================== PRIVACY ===================== -->
+        <section class="section" id="privacy">
+          <h2 class="section-title">🔒 隐私安全 <span class="badge badge-advanced">高级</span></h2>
+          
+          <div class="sub">
+            <h3>隐私保护承诺</h3>
+            <div class="card">
+              <h4>🛡️ OpenCode 的隐私原则</h4>
+              <ul>
+                <li><strong>不存储代码</strong>：OpenCode 不会存储你的代码或上下文数据</li>
+                <li><strong>本地存储</strong>：所有对话和历史记录仅保存在本地 SQLite 数据库</li>
+                <li><strong>API 直接传递</strong>：代码直接传递给 AI 提供商，不经 OpenCode 服务器</li>
+                <li><strong>支持离线</strong>：使用本地模型时完全离线运行</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>数据流向</h3>
+            <!-- SVG: Data flow -->
+            <div class="svg-wrap">
+              <svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+                <!-- Your Code -->
+                <rect x="20" y="40" width="100" height="60" rx="8" fill="rgba(63,185,80,.15)" stroke="#3fb950" stroke-width="2"/>
+                <text x="70" y="75" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="700">你的代码</text>
+                <!-- Arrow -->
+                <path d="M120 70 L180 70" stroke="#58a6ff" stroke-width="2" marker-end="url(#dataflow)"/>
+                <!-- OpenCode -->
+                <rect x="180" y="40" width="100" height="60" rx="8" fill="rgba(88,166,255,.1)" stroke="#58a6ff" stroke-width="2"/>
+                <text x="230" y="65" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="700">OpenCode</text>
+                <text x="230" y="82" text-anchor="middle" fill="#8b949e" font-size="10">本地处理</text>
+                <!-- Arrow -->
+                <path d="M280 70 L340 70" stroke="#bc8cff" stroke-width="2" marker-end="url(#dataflow2)"/>
+                <!-- AI Provider -->
+                <rect x="340" y="40" width="120" height="60" rx="8" fill="rgba(188,140,255,.1)" stroke="#bc8cff" stroke-width="2"/>
+                <text x="400" y="65" text-anchor="middle" fill="#bc8cff" font-size="12" font-weight="700">AI 提供商</text>
+                <text x="400" y="82" text-anchor="middle" fill="#8b949e" font-size="10">Claude/GPT/etc</text>
+                <!-- Or -->
+                <text x="490" y="70" fill="#d97706" font-size="12">或</text>
+                <!-- Local Model -->
+                <rect x="520" y="40" width="100" height="60" rx="8" fill="rgba(63,185,80,.15)" stroke="#3fb950" stroke-width="2"/>
+                <text x="570" y="65" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="700">本地模型</text>
+                <text x="570" y="82" text-anchor="middle" fill="#8b949e" font-size="10">完全离线</text>
+                <!-- Arrow markers -->
+                <defs>
+                  <marker id="dataflow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#58a6ff"/>
+                  </marker>
+                  <marker id="dataflow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#bc8cff"/>
+                  </marker>
+                </defs>
+              </svg>
+              <div class="svg-caption">数据流向：代码只经本地处理，可选择本地模型完全离线</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>安全最佳实践</h3>
+            <div class="accordion">
+              <div class="acc-item open">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>API 密钥管理</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <div class="code-block">
+                    <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                    <div class="code-body"># ✅ 推荐：使用环境变量
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# ❌ 避免：硬编码在配置文件中
+# 不要将 API 密钥写入 .opencode.json
+
+# ✅ 使用 .env 文件（添加到 .gitignore）
+echo "ANTHROPIC_API_KEY=sk-ant-..." >> .env
+echo ".env" >> .gitignore</div>
+                  </div>
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAcc(this)"><span>敏感项目处理</span><span class="arrow">▶</span></div>
+                <div class="acc-body"><div class="acc-inner">
+                  <ul>
+                    <li>使用<strong>计划模式</strong>查看敏感文件，避免意外修改</li>
+                    <li>使用<strong>本地模型</strong>确保代码不离本地</li>
+                    <li>在 <code>.opencode.json</code> 中配置文件排除规则</li>
+                  </ul>
+                  <div class="code-block" style="margin-top:8px">
+                    <div class="code-header"><span class="lang">json</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+                    <div class="code-body">{
+  "exclude": [
+    "**/.env",
+    "**/secrets/**",
+    "**/credentials.json"
+  ]
+}</div>
+                  </div>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== CHEATSHEET ===================== -->
+        <section class="section" id="cheatsheet">
+          <h2 class="section-title">📋 速查表</h2>
+          
+          <div class="sub">
+            <h3>安装命令</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body"># 一键安装
+curl -fsSL https://opencode.ai/install | bash
+
+# Homebrew
+brew install opencode-ai/tap/opencode
+
+# npm
+npm install -g opencode-ai@latest
+
+# Go
+go install github.com/opencode-ai/opencode@latest</div>
+            </div>
+          </div>
+
+          <div class="sub">
+            <h3>常用命令</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>命令</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td><code>opencode</code></td><td>启动 TUI</td></tr>
+                <tr><td><code>opencode -c /path</code></td><td>指定工作目录</td></tr>
+                <tr><td><code>opencode -p "问题"</code></td><td>非交互式提问</td></tr>
+                <tr><td><code>opencode -d</code></td><td>调试模式</td></tr>
+                <tr><td><code>/init</code></td><td>初始化项目</td></tr>
+                <tr><td><code>/undo</code></td><td>撤销更改</td></tr>
+                <tr><td><code>/redo</code></td><td>重做更改</td></tr>
+                <tr><td><code>/share</code></td><td>分享对话</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>快捷键</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>快捷键</th><th>功能</th></tr></thead>
+              <tbody>
+                <tr><td><code>Tab</code></td><td>切换计划/构建模式</td></tr>
+                <tr><td><code>Ctrl+O</code></td><td>切换模型</td></tr>
+                <tr><td><code>Ctrl+K</code></td><td>命令对话框</td></tr>
+                <tr><td><code>Ctrl+N</code></td><td>新会话</td></tr>
+                <tr><td><code>Ctrl+S</code></td><td>发送消息（编辑器中）</td></tr>
+                <tr><td><code>@</code></td><td>文件搜索引用</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+
+          <div class="sub">
+            <h3>环境变量</h3>
+            <div class="code-block">
+              <div class="code-header"><span class="lang">bash</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+              <div class="code-body">export ANTHROPIC_API_KEY="sk-ant-..."   # Claude
+export OPENAI_API_KEY="sk-..."           # OpenAI
+export GEMINI_API_KEY="AIza..."          # Gemini
+export GITHUB_TOKEN="ghp_..."            # GitHub Copilot
+export GROQ_API_KEY="gsk_..."            # Groq
+export LOCAL_ENDPOINT="http://localhost:11434"  # Ollama</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== FAQ ===================== -->
+        <section class="section" id="faq">
+          <h2 class="section-title">❓ 常见问题</h2>
+          
+          <div class="accordion">
+            <div class="acc-item open">
+              <div class="acc-head" onclick="toggleAcc(this)"><span>OpenCode 和 Claude Code 有什么区别？</span><span class="arrow">▶</span></div>
+              <div class="acc-body"><div class="acc-inner">
+                <div class="tbl-wrap"><table>
+                  <thead><tr><th>维度</th><th>OpenCode</th><th>Claude Code</th></tr></thead>
+                  <tbody>
+                    <tr><td>开源</td><td>✅ MIT</td><td>❌ 闭源</td></tr>
+                    <tr><td>价格</td><td>免费（API 自付）</td><td>$20-200/月</td></tr>
+                    <tr><td>模型</td><td>75+ 提供商</td><td>仅 Claude</td></tr>
+                    <tr><td>本地模型</td><td>✅ 支持</td><td>❌ 不支持</td></tr>
+                    <tr><td>高级功能</td><td>基础</td><td>丰富（Skills/Hooks）</td></tr>
+                  </tbody>
+                </table></div>
+              </div></div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAcc(this)"><span>OpenCode 项目状态如何？</span><span class="arrow">▶</span></div>
+              <div class="acc-body"><div class="acc-inner">
+                <p>原 OpenCode 仓库已于 2025 年 9 月归档，项目已迁移至 <a href="https://github.com/charmbracelet/crush" target="_blank" style="color:#58a6ff">Crush</a>（由 Charm 团队维护）。</p>
+                <p>目前仍有大量用户使用 OpenCode，社区活跃。建议关注 Crush 项目的发展。</p>
+              </div></div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAcc(this)"><span>如何选择模型？</span><span class="arrow">▶</span></div>
+              <div class="acc-body"><div class="acc-inner">
+                <ul>
+                  <li><strong>推荐</strong>：OpenCode Zen（官方优化服务）</li>
+                  <li><strong>性价比</strong>：Claude 3.5 Sonnet / GPT-4.1-mini</li>
+                  <li><strong>免费</strong>：本地模型（Ollama + CodeLlama）</li>
+                  <li><strong>最快</strong>：Groq + Llama 3.3</li>
+                </ul>
+              </div></div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAcc(this)"><span>支持哪些编程语言？</span><span class="arrow">▶</span></div>
+              <div class="acc-body"><div class="acc-inner">
+                <p>OpenCode 内置 LSP 支持，可以处理所有主流编程语言：</p>
+                <p>TypeScript/JavaScript、Python、Go、Rust、Java、C/C++、Ruby、PHP 等。</p>
+              </div></div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-head" onclick="toggleAcc(this)"><span>如何贡献代码？</span><span class="arrow">▶</span></div>
+              <div class="acc-body"><div class="acc-inner">
+                <p>原仓库已归档，新开发在 <a href="https://github.com/charmbracelet/crush" target="_blank" style="color:#58a6ff">Crush</a> 项目中进行。</p>
+                <p>欢迎参与社区贡献！</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <p>📗 OpenCode 学习教程 · 开源免费 · 隐私优先</p>
+          <p style="margin-top:8px"><a href="https://opencode.ai" target="_blank">官网</a> · <a href="https://github.com/opencode-ai/opencode" target="_blank">GitHub</a> · <a href="https://github.com/charmbracelet/crush" target="_blank">Crush (新项目)</a></p>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile sidebar toggle -->
+  <button class="sb-toggle" onclick="toggleSidebar()">☰</button>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // Sidebar navigation
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelector('.nav-item.active')?.classList.remove('active');
+        item.classList.add('active');
+        const target = document.getElementById(item.dataset.target);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // Close sidebar on mobile
+        if (window.innerWidth <= 768) {
+          document.getElementById('sidebar').classList.remove('open');
+        }
+      });
+    });
+
+    // Update active nav on scroll
+    const sections = document.querySelectorAll('.section');
+    const navItems = document.querySelectorAll('.nav-item[data-target]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.target === current) {
+          item.classList.add('active');
+        }
+      });
+      // Progress bar
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollY / docHeight) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+      // Scroll to top button
+      const scrollBtn = document.getElementById('scrollTop');
+      if (scrollY > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    // Tab switching
+    function switchTab(btn, panelId) {
+      const parent = btn.closest('.tabs');
+      parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
+    }
+
+    // Accordion
+    function toggleAcc(head) {
+      const item = head.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // Copy code
+    function copyCode(btn) {
+      const code = btn.closest('.code-block').querySelector('.code-body').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '复制';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Mobile sidebar toggle
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    // Scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Search
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.nav-item[data-target]').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (query && !text.includes(query)) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = 'flex';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
